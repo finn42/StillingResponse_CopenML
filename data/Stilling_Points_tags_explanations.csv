@@ -1,0 +1,28 @@
+Column,Units,Category,Contrary,Description
+TIME,"seconds, float",Metadata,NA,"Time of stilling point onset, in seconds, concert time (zero is start of first sync cue taps)"
+LABEL,"measures, float",Metadata,NA,Stilling point onset by score measure number. Measure numbers include precise beat subdivisions written in decimal (not traditional but necessary for some of the data processing). Gaps that are not notated in the score are set to begin 0.01 measures from the next notated event.
+Set,"1-9, integers",Metadata,NA,"Each set of music performed that was followed by applayse. 1: Beethoven, 2: Schnittke, 3: Bach, 4-9: Folk music "
+Movement,"1-7, integers",Metadata,NA,Which movement or song in the set 
+cues,"count, integers",Metadata,NA,The number of identified stilling cues tagged at this stilling point
+Type,text,Metadata,NA,A verbal descriptor of the type of stilling point. Note: NOT reviewed for consistency. 
+Gap,binary,Sound,0,"A point at an audible gap, an interval of time when no notes were sounding"
+Rest,binary,Sound,0,A point at a rest notated in the score
+Connect,binary,Sound,1,"A point without a gap, where some line in the music continued through the stilling point."
+Voices_dec,binary,Texture,0,A point at which the number of voices sounding decreases from previous texture
+Note_rate_dec,binary,Texture,0,A point at which the onset rate of notes across the ensemble noticeably decreases from previous texture
+Drone,binary,Texture,1,A point through which a drone (a steady sustained note or chord) is played 
+TextInc,binary,Texture,1,A point at which the texture increased in onset rate or number of voices from previous texture
+Phr_end,binary,Structure ,0,A point at which a phrase or melodic idea is or has just ended
+Phr_begining,binary,Structure ,1,A point at which a phrase or melodic idea is just begining
+Elide,binary,Structure ,1,"A point at which a phrase ending is elided with a begining, a note connected to both segments"
+Sequence,binary,Structure ,1,A point whose specific cues for stillness have been evoked directly previously
+Rubato,binary,Time,0,"A point at which the performance involved a percievable slowing of tempo, such as phrase final lengthening"
+Rit,binary,Time,0,A point at which there was an explicit slowing of the tempo marked in the score
+Fermata,binary,Time,0,A point at which the beat is stalled by a score notated fermata
+Tempo_inc,binary,Time,1,A point at which the tempo is actually increasing
+Diminuendo,binary,Loudness,0,A point that is in or directly following a percievable decrease in loudness. (Not always score-notated)
+Fp/Fz,binary,Loudness,0,A point at which there has just been a sharp contrast in loudness like a Fp
+Cresc,binary,Loudness,1,A point at which the performance includes an audible increase in loudness
+Precision,binary,Time,0,"A point that has a clear onset of stillness, by concurent note onset or a predictably timed potential next note."
+end,binary,Structure ,0,A point directly following the end of a piece or movement.
+OLDTIME,"seconds, float",Metadata,NA,"Old time values, prior to revision 3"
